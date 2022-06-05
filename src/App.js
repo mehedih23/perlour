@@ -6,6 +6,7 @@ import Portfolio from './components/Portfolio'
 import Pricing from './components/Pricing'
 import ScrollToTop from './components/ScrollToTop'
 import Services from './components/Services'
+import Testimonials from './components/Testimonials'
 import Video from './components/Video'
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Blog></Blog>
       <Video></Video>
       <Pricing></Pricing>
+      <Testimonials></Testimonials>
 
       <ScrollToTop></ScrollToTop>
     </div>

@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import loadmore from '../assets/loadmore.png'
 import styled from 'styled-components';
+import {motion} from 'framer-motion';
+import { useScroll } from './useScroll';
+import { testimonialAminations } from '../animation';
 
 const Testimonials = () => {
     const [selected, setSelected] = useState(0)
+    const [element, controls] = useScroll();
     const testimonials = [
         {
           designation: "SPA",
@@ -25,13 +29,19 @@ const Testimonials = () => {
         },
       ];
   return (
-    <Section>
+    <Section ref={element}>
         <div className="container">
             <div className="testimonials">
                 {
                     testimonials.map(({designation, name, review}, index) =>{
                         return (
-                            <div className={`testimonial ${selected === index ? 'active' : 'hidden'}`} key={index}>
+                            <motion.div 
+                            className={`testimonial ${selected === index ? 'active' : 'hidden'}`} 
+                            key={index}
+                            variants={testimonialAminations}
+                            animate={controls} 
+                            transition={{delay: 0.03, duration: 0.8, type: 'tween'}} 
+                            >
                                 <div className="image">
                                     <div className="circle2">
                                         <img src={loadmore} alt="loadmore" />
@@ -46,16 +56,20 @@ const Testimonials = () => {
                                 <p className="description">
                                     {review}
                                 </p>
-                            </div>
+                            </motion.div>
                         )
                     })
                 }
             </div>
-            <div className='controls'>
+            <motion.div className='controls'
+            variants={testimonialAminations}
+            animate={controls} 
+            transition={{delay: 0.03, duration: 0.8, type: 'tween'}} 
+            >
                 <button className={selected === 0 ? 'active' : ''} onClick = {() => {setSelected(0)}}> </button>
                 <button className={selected === 1 ? 'active' : ''} onClick = {() => {setSelected(1)}}> </button>
                 <button className={selected === 2 ? 'active' : ''} onClick = {() => {setSelected(2)}}> </button>
-            </div>
+            </motion.div>
         </div>
     </Section>
   )

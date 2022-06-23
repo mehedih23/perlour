@@ -49,6 +49,14 @@ padding: 5rem 10rem;
             }
         }
     }
+
+
+@media screen and (min-width: 280px) and (max-width: 1080px){
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
 `
 
 export default Footer

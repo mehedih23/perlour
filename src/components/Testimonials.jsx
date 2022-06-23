@@ -138,6 +138,24 @@ overflow: hidden;
         }
     }
 }
+
+
+@media screen and (min-width: 280px) and (max-width: 1080px){
+    .backgroun{
+        display: none;
+    }
+    .container{
+        padding: 4rem 0;
+        .testimonials{
+            width: 80%;
+            .testimonial{
+                .description{
+                    height: 18%;
+                }
+            }
+        }
+    }
+}
 `
 
 export default Testimonials

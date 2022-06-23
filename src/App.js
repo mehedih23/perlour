@@ -1,6 +1,7 @@
 import React from 'react'
 import Blog from './components/Blog'
 import Contacts from './components/Contacts'
+import Footer from './components/Footer'
 import Home from './components/Home'
 import Milestones from './components/Milestones'
 import Portfolio from './components/Portfolio'
@@ -24,6 +25,7 @@ const App = () => {
       <Testimonials></Testimonials>
       <Skills></Skills>
       <Contacts></Contacts>
+      <Footer></Footer>
 
       <ScrollToTop></ScrollToTop>
     </div>

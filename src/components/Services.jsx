@@ -37,6 +37,7 @@ const Services = () => {
                 data.map(({type, text, image}, index) =>{
                     return(
                         <motion.div className='services_service'
+                        key={index}
                         variants={serviceAminations}
                         animate={controls}
                         transition={{delay: 0.03, duration: 0.8, type: 'tween'}}

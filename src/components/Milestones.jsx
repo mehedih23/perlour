@@ -34,9 +34,10 @@ const Milestones = () => {
         </div>
         <div className='milestones'>
             {
-                milestone.map(({amount, data, image}) => {
+                milestone.map(({amount, data, image}, index) => {
                     return(
                         <motion.div className='milestone'
+                        key={index}
                         variants={milestonesAminations}
                         animate={controls} 
                         transition={{delay: 0.03, duration: 0.8, type: 'tween'}} 

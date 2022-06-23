@@ -117,6 +117,26 @@ padding-bottom: 2rem;
 
     }
 }
+
+
+@media screen and (min-width: 280px) and (max-width: 1080px){
+    .grid{
+        padding: 0;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "one"
+        "two"
+        "three"
+        "four"
+        "five"
+        "six"
+        "seven"
+        "eight";
+        .grid-box{
+            height: 25rem !important;
+        }
+    }
+}
 `
 
 export default Portfolio

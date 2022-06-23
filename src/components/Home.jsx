@@ -3,12 +3,18 @@ import home from '../assets/home.png'
 import play from '../assets/play.png'
 import Navbar from './Navbar'
 import styled from 'styled-components'
+import { motion } from 'framer-motion';
+import {homeInfoAnimation, homeAnimation} from '../animation';
+
 
 const Home = () => {
   return (
     <Section>
         <Navbar/>
-        <div className="home">
+        <motion.div className="home"
+        variants={homeAnimation}
+        transition={{delay: 0.3, duration: 0.6, type: 'tween'}}
+        >
             <div className="content">
                 <div className="title">
                     <h1>Blossoms Parlour</h1>
@@ -20,39 +26,42 @@ const Home = () => {
                 </div>
                 <img src={play} alt="play button" />
             </div>
-        </div>
+        </motion.div>
 
-        <div className='info'>
-        <div className="grid">
-            <div className="col">
-                <strong>Parlour</strong>
-                <p>Blossoms Academy</p>
+        <motion.div className='info'
+        variants={homeInfoAnimation}
+        transition={{delay: 0.3, duration: 0.6, type: 'tween'}}
+        >
+            <div className="grid">
+                <div className="col">
+                    <strong>Parlour</strong>
+                    <p>Blossoms Academy</p>
+                </div>
+                <div className="col">
+                    <strong>Email</strong>
+                    <p>blossoms@gmail.com</p>
+                </div> 
+                <div className="col">
+                    <strong>Mobile</strong>
+                    <p>+91 8897666511</p>
+                </div> 
+                <div className="col">
+                    <strong>Address</strong>
+                    <p>322, Long Fly,</p>
+                    <p>997773 India</p>
+                </div> 
+                <div className="col">
+                    <strong>Services</strong>
+                    <p>Sparking</p>
+                    <p>SPA Cream</p>
+                </div> 
+                <div className="col">
+                    <strong>Working Hours</strong>
+                    <p>Monday to Friday</p>
+                    <p>08:00 to 09:00</p>
+                </div>   
             </div>
-            <div className="col">
-                <strong>Email</strong>
-                <p>blossoms@gmail.com</p>
-            </div> 
-            <div className="col">
-                <strong>Mobile</strong>
-                <p>+91 8897666511</p>
-            </div> 
-            <div className="col">
-                <strong>Address</strong>
-                <p>322, Long Fly,</p>
-                <p>997773 India</p>
-            </div> 
-            <div className="col">
-                <strong>Services</strong>
-                <p>Sparking</p>
-                <p>SPA Cream</p>
-            </div> 
-            <div className="col">
-                <strong>Working Hours</strong>
-                <p>Monday to Friday</p>
-                <p>08:00 to 09:00</p>
-            </div>   
-          </div>
-          </div>
+        </motion.div>
     </Section>
   )
 }

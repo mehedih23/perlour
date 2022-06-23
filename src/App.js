@@ -11,10 +11,14 @@ import Services from './components/Services'
 import Skills from './components/Skills'
 import Testimonials from './components/Testimonials'
 import Video from './components/Video'
+import { motion } from 'framer-motion';
 
 const App = () => {
   return (
-    <div>
+    <motion.div
+      initial="hidden"
+      animate='show'
+    >
       <Home></Home>
       <Services></Services>
       <Portfolio></Portfolio>
@@ -28,7 +32,7 @@ const App = () => {
       <Footer></Footer>
 
       <ScrollToTop></ScrollToTop>
-    </div>
+    </motion.div>
   )
 }
 

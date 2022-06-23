@@ -9,19 +9,24 @@ import portfolio7 from '../assets/portfolio7.jpg';
 import portfolio8 from '../assets/portfolio8.jpg';
 import portfolio9 from '../assets/portfolio9.jpg';
 import portfolio10 from '../assets/portfolio10.jpg';
+import { useScroll } from './useScroll';
+import { motion } from 'framer-motion';
+import { portfolioAminations } from '../animation';
+
 
 const Portfolio = () => {
+    const [element, controls] = useScroll();
   return (
-    <Section id='portfolio'>
+    <Section id='portfolio' ref={element}>
         <div className="grid">
-            <div className="child-one grid-box"></div>
-            <div className="child-two grid-box"></div>
-            <div className="child-three grid-box"></div>
-            <div className="child-four grid-box"></div>
-            <div className="child-five grid-box"></div>
-            <div className="child-six grid-box"></div>
-            <div className="child-seven grid-box"></div>
-            <div className="child-eight grid-box"></div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-one grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-two grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-three grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-four grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-five grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-six grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-seven grid-box" ></motion.div>
+            <motion.div variants={portfolioAminations} animate={controls} transition={{delay: 0.03, duration: 0.8, type: 'tween'}} className="child-eight grid-box" ></motion.div>
         </div>
         <div className="portfolio-more">
             <span>Load More</span>

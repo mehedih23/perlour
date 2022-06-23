@@ -19,6 +19,11 @@ position: relative;
         color: var(--secondary-color);
         text-transform: uppercase;
     }
+
+
+    @media screen and (min-width: 280px) and (max-width: 1080px){
+      display: none;   
+    }
 `
 
 

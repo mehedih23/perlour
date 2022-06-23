@@ -105,6 +105,14 @@ min-height: 100vh;
 }
 
 
+@media screen and (min-width: 280px) and (max-width: 1080px){
+    .services{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+        padding: 0 2rem;
+    }
+}
 
 `
 

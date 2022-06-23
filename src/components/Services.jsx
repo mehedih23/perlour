@@ -5,8 +5,13 @@ import service3 from '../assets/service3.png'
 import play from '../assets/play.png'
 import styled from 'styled-components'
 import Title from './Title'
+import { useScroll } from './useScroll';
+import { motion } from 'framer-motion';
+import { serviceAminations } from '../animation';
 
 const Services = () => {
+    const [element, controls] = useScroll();
+
     const data = [
         {
           type: "Blowout",
@@ -25,13 +30,17 @@ const Services = () => {
         },
       ];
   return (
-    <Section id='services'>
+    <Section id='services' ref={element}>
         <Title value='Services'></Title>
         <div className="services">
             {
                 data.map(({type, text, image}, index) =>{
                     return(
-                        <div className='services_service'>
+                        <motion.div className='services_service'
+                        variants={serviceAminations}
+                        animate={controls}
+                        transition={{delay: 0.03, duration: 0.8, type: 'tween'}}
+                        >
                             <div className='services_service_image'>
                                 <img src={image} alt={type} />
                             </div>
@@ -41,7 +50,7 @@ const Services = () => {
                             </div>
                             <p className='services_service_description'>{text}</p>
                             <img src={play} alt='readmore' />
-                        </div>
+                        </motion.div>
                     )
                 })
             }

@@ -1,13 +1,22 @@
 import React from 'react';
 import styled from 'styled-components'
 import Title from './Title';
+import {motion} from 'framer-motion';
+import { useScroll } from './useScroll';
+import { contactAminations } from '../animation';
 
 const Contacts = () => {
+    const [element, controls] = useScroll();
   return (
-    <Section>
+    <Section id='contact' ref={element}>
         <Title value='Contact'></Title>
 
-        <div className="contact">
+        <motion.div 
+        className="contact"
+        variants={contactAminations}
+        animate={controls}
+        transition={{delay: 0.3, duration: 0.8, type: 'tween'}}
+        >
             <div className="contact_title">
                 <p>Stay in touch with us </p>
                 <h2>Quick Contact</h2>
@@ -42,7 +51,7 @@ const Contacts = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     </Section>
   )
 }

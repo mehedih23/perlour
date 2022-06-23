@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Title from './Title';
+import {motion} from 'framer-motion';
+import { useScroll } from './useScroll';
+import { skillsBarAminations } from '../animation';
 
 const Skills = () => {
+    const [element, controls] = useScroll();
+
     const skillsData = [
         {
           name: "Facial",
@@ -26,7 +31,7 @@ const Skills = () => {
         },
       ];
   return (
-    <Section id='skills'>
+    <Section id='skills' ref={element}>
         <Title value='Skills'></Title>
 
         <div className="skills_title">
@@ -39,13 +44,19 @@ const Skills = () => {
                 {
                     skillsData.map(({name, amount}, index) =>{
                         return (
-                            <div className="skills_bars_bar" key={index}>
+                            <motion.div 
+                            className="skills_bars_bar" 
+                            key={index}
+                            variants={skillsBarAminations}
+                            animate={controls} 
+                            transition={{delay: 0.03, duration: 0.8, type: 'tween'}} 
+                            >
                                 <div className="container">
                                     <progress value={amount} max='100'></progress>
                                     <span>{name}</span>
                                 </div>
                                 <h3>{amount}%</h3>
-                            </div>
+                            </motion.div>
                         );
                     })
                 }
@@ -87,7 +98,7 @@ background-color: var(--secondary-color);
         color: var(--primary-color);
     }
     h2{
-        color: #fff;
+        color: white;
         font-size: 2rem;
     }
 }
@@ -122,14 +133,18 @@ background-color: var(--secondary-color);
                 }
 
                 progress{
+                    width: 30rem;
                     -webkit-appearance: none;
                     appearance: none;
-                    width: 30rem;
                     &::-webkit-progress-bar{
                         height: 3rem;
                         background-color: var(--primary-color);
                         border-radius: 20px;
                     }
+                    &::-webkit-progress-value {
+                        background-color: white; 
+                        border-radius: 20px;
+                      }
                 }
             }
             h3{

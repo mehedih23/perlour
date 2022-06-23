@@ -47,3 +47,8 @@ export const testimonialAminations = {
     hidden: { scale: 0, opacity: 0 },
     show: { scale: 1, opacity: 1 }
 }
+
+export const skillsBarAminations = {
+    hidden: { y: 0, opacity: 0 },
+    show: { y: 1, opacity: 1 }
+}
